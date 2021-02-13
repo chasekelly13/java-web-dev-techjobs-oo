@@ -97,9 +97,11 @@ public class Job {
         return id;
     }
 
+    //override to make a toString function
     @Override
     public String toString(){
 
+        //checking to see if the variables are empty. If so then replace that value with "Data not available"
         if(name == null || name.equals("")){
             this.name = "Data not available";
         }
@@ -116,6 +118,7 @@ public class Job {
             positionType.setValue("Data not available");
         }
 
+        //creating the string variable that and matching it with the correct values and format
         String string = ("\n" + "ID: " + this.getId() + "\n" +
                 "Name: " + this.name + "\n" +
                 "Employer: " + this.employer.getValue() +"\n" +
