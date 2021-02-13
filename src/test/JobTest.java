@@ -55,6 +55,42 @@ public class JobTest {
         assertFalse(job4.equals(job3));
     }
 
+    //Fourth test: testing: "When passed a Job object, it should return a string that contains a blank line before and after the job information."
 
+    @Test
+    public void testFirstAndLastLineBlank(){
+        char firstChar = job3.toString().charAt(0);
+        char lastChar = job3.toString().charAt(job3.toString().length()-1);
+        assertTrue(firstChar == lastChar);
+    }
+
+    //Fifth test: testing: The string should contain a label for each field, followed by the data stored in that field.
+    @Test
+    public void testValuesAreAssignedProperly(){
+        String string = ("\n" + "ID: " + job3.getId() + "\n" +
+                "Name: " + job3.getName() + "\n" +
+                "Employer: " + job3.getEmployer() +"\n" +
+                "Location: " + job3.getLocation() + "\n" +
+                "Position Type: " + job3.getPositionType() + "\n" +
+                "Core Competency: " + job3.getCoreCompetency() + "\n");
+        assertEquals(string, job3.toString());
+    }
+
+    //Sixth test: testing: If a field is empty, the method should add, “Data not available” after the label.
+    @Test
+    public void testIfEmptyValuesHoldDataNotAvailable(){
+        job3.setName("");
+        job3.getEmployer().setValue("");
+        job3.getLocation().setValue("");
+        job3.getPositionType().setValue("");
+        job3.getCoreCompetency().setValue("");
+        String string = ("\n" + "ID: " + job3.getId() + "\n" +
+                "Name: " + "Data not available" + "\n" +
+                "Employer: " + "Data not available" +"\n" +
+                "Location: " + "Data not available" + "\n" +
+                "Position Type: " + "Data not available" + "\n" +
+                "Core Competency: " + "Data not available" + "\n");
+        assertEquals(string, job3.toString());
+    }
 
 }

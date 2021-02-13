@@ -96,4 +96,34 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString(){
+
+        if(name == null || name.equals("")){
+            this.name = "Data not available";
+        }
+        if(employer.getValue().equals("")){
+            employer.setValue("Data not available");
+        }
+        if(location.getValue().equals("")){
+            location.setValue("Data not available");
+        }
+        if(coreCompetency.getValue().equals("")){
+            coreCompetency.setValue("Data not available");
+        }
+        if(positionType.getValue().equals("")){
+            positionType.setValue("Data not available");
+        }
+
+        String string = ("\n" + "ID: " + this.getId() + "\n" +
+                "Name: " + this.name + "\n" +
+                "Employer: " + this.employer.getValue() +"\n" +
+                "Location: " + this.location.getValue() + "\n" +
+                "Position Type: " + this.positionType.getValue() + "\n" +
+                "Core Competency: " + this.coreCompetency.getValue() + "\n");
+
+            return string;
+
+    }
 }
